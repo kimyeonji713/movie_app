@@ -2,12 +2,13 @@
 
 ## 설치 항목
 
-- [ ] react-router-dom
-- [ ] styled-components
-- [ ] styled-reset
-- [ ] react-spinners
-- [ ] swiper
-- [ ] font-awesome
-- [ ] react-hook-form
-- [ ] helmet-async
-- [ ] react-icons
+- [x] react-router-dom
+- [x] styled-components
+- [x] styled-reset
+- [x] react-spinners
+- [x] swiper
+- [x] font-awesome
+- [x] react-hook-form
+- [x] helmet-async
+- [x] react-icons
+- [ ] gh-pages
