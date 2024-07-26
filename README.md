@@ -12,3 +12,11 @@
 - [x] helmet-async
 - [x] react-icons
 - [ ] gh-pages
+
+## 240726
+
+- [x] npm 설치
+- [x] Router 설정
+- [x] Home, Detail, Search, 404 페이지 만들기
+- [x] routes 설정
+- [ ] Globalstyled 구성
