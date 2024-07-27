@@ -25,5 +25,6 @@
 
 - [x] api 설정
 - [x] Header 구성
-- [ ] Footer 구성
+- [x] Footer 구성
 - [ ] Loading 구성
+- [ ] 햄버거 메뉴 구성
