@@ -23,7 +23,7 @@
 
 ## 240727
 
-- [ ] api 설정
-- [ ] Header 구성
+- [x] api 설정
+- [x] Header 구성
 - [ ] Footer 구성
 - [ ] Loading 구성

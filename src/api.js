@@ -38,6 +38,9 @@ export const latest = () =>
 export const videos = (movie_id) =>
   fetch(url(`movie/${movie_id}/videos`), options).then((res) => res.json());
 
+export const similar = (movie_id) =>
+  fetch(url(`movie/${movie_id}/similar`), options).then((res) => res.json());
+
 export const searchMovie = (keyword) => {
   const searchUrl = baseUrl + `search/movie?query=${keyword}&language=ko-kr`;
 };
