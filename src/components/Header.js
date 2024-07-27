@@ -32,6 +32,7 @@ const Menu = styled.ul`
 
 const MenuBtn = styled.div`
   margin-left: 50px;
+  cursor: pointer;
 `;
 
 export const Header = () => {
@@ -47,9 +48,9 @@ export const Header = () => {
             <FiSearch />
           </Link>
         </li>
+
         <MenuBtn>
           <FaBars />
-          <Bar />
         </MenuBtn>
       </Menu>
     </Container>

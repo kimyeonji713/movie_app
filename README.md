@@ -26,5 +26,6 @@
 - [x] api 설정
 - [x] Header 구성
 - [x] Footer 구성
-- [ ] Loading 구성
+- [x] Loading 구성
 - [ ] 햄버거 메뉴 구성
+- [x] 로그인 페이지 스타일 구성

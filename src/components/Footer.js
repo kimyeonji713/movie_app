@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { colors } from "../GlobalStyled";
 
 const Container = styled.footer`
   height: 150px;
-  border-top: 1px solid #666;
+  border-top: 1px solid ${colors.sub};
   display: flex;
   justify-content: center;
   align-items: center;
