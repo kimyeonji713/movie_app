@@ -19,4 +19,11 @@
 - [x] Router 설정
 - [x] Home, Detail, Search, 404 페이지 만들기
 - [x] routes 설정
-- [ ] Globalstyled 구성
+- [x] Globalstyled 구성
+
+## 240727
+
+- [ ] api 설정
+- [ ] Header 구성
+- [ ] Footer 구성
+- [ ] Loading 구성
