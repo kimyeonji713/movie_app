@@ -4,10 +4,10 @@ import { Header } from "./components/Header";
 import { Home } from "./pages/home/Home";
 import { Detail } from "./pages/detail/Detail";
 import { Footer } from "./components/Footer";
-import { Login } from "./components/Login";
+import { Login } from "./pages/Login";
 import { PageNotFound } from "./pages/PageNotFound";
 import { Search } from "./pages/search/Search";
-import { Signup } from "./components/Signup";
+import { Signup } from "./pages/Signup";
 
 const Router = () => {
   return (
