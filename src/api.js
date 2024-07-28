@@ -26,8 +26,8 @@ export const topRated = () =>
 export const upcoming = () =>
   fetch(url("movie/upcoming"), options).then((res) => res.json());
 
-export const genres = () =>
-  fetch(url("genre/movie/list"), options).then((res) => res.json());
+export const trending = () =>
+  fetch(url("trending/movie/day"), options).then((res) => res.json());
 
 export const movieDetail = (movie_id) =>
   fetch(url(`movie/${movie_id}`), options).then((res) => res.json());
@@ -35,12 +35,19 @@ export const movieDetail = (movie_id) =>
 export const latest = () =>
   fetch(url("movie/latest"), options).then((res) => res.json());
 
-export const videos = (movie_id) =>
-  fetch(url(`movie/${movie_id}/videos`), options).then((res) => res.json());
-
 export const similar = (movie_id) =>
   fetch(url(`movie/${movie_id}/similar`), options).then((res) => res.json());
 
 export const searchMovie = (keyword) => {
   const searchUrl = baseUrl + `search/movie?query=${keyword}&language=ko-kr`;
+};
+
+export const genre = () => {
+  const genrelUrl = baseUrl + `genre/movie/list?language=ko-kr`;
+  return fetch(genrelUrl, options).then((res) => res.json());
+};
+
+export const videos = (movie_id) => {
+  const videolUrl = baseUrl + `movie/${movie_id}/videos?language=ko-kr`;
+  return fetch(videolUrl, options).then((res) => res.json());
 };

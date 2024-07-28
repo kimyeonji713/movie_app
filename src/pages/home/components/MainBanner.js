@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { ORIGIN_URL } from "../../../constant/imgUrl";
-import { spacing } from "../../../GlobalStyled";
+import { colors, spacing } from "../../../GlobalStyled";
+import { FaPlay, FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { routes } from "../../../routes";
 
 const Container = styled.section`
   height: 80vh;
@@ -52,12 +55,49 @@ const BlackBg = styled.div`
   );
 `;
 
-export const MainBanner = ({ data }) => {
+const BtnWrap = styled.div`
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  button {
+    width: 200px;
+    height: 40px;
+    margin-right: 30px;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 0px;
+  }
+
+  .trailer {
+    background-color: ${colors.point};
+  }
+
+  .plus {
+    background-color: ${colors.sub};
+  }
+`;
+
+export const MainBanner = ({ movieData }) => {
+  // console.log(movieData);
   return (
-    <Container $bgUrl={data.backdrop_path}>
+    <Container $bgUrl={movieData.backdrop_path}>
       <BlackBg />
-      <h3>{data.title}</h3>
-      <p>{data.overview.slice(0, 100) + "..."}</p>
+      <h3>{movieData.title}</h3>
+      <p>{movieData.overview.slice(0, 100) + "..."}</p>
+      <BtnWrap>
+        <button className="trailer">
+          <Link to={""}>
+            <FaPlay /> 예고편
+          </Link>
+        </button>
+        <button className="plus">
+          <Link to={routes.detail}>
+            <FaPlus /> 더보기
+          </Link>
+        </button>
+      </BtnWrap>
     </Container>
   );
 };

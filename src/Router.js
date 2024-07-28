@@ -8,6 +8,7 @@ import { Login } from "./pages/Login";
 import { PageNotFound } from "./pages/PageNotFound";
 import { Search } from "./pages/search/Search";
 import { Signup } from "./pages/Signup";
+import { GenresList } from "./pages/List/GenreList";
 
 const Router = () => {
   return (
@@ -19,6 +20,8 @@ const Router = () => {
         <Route path={routes.search} element={<Search />} />
         <Route path={routes.login} element={<Login />} />
         <Route path={routes.signup} element={<Signup />} />
+        <Route path={routes.genre} element={<GenresList />} />
+
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <Footer />

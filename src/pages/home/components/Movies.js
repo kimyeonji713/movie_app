@@ -5,7 +5,7 @@ import { spacing } from "../../../GlobalStyled";
 import { W500_URL } from "../../../constant/imgUrl";
 
 const Section = styled.section`
-  padding: 100px 0 0 ${spacing.side};
+  padding: 80px 0 0 ${spacing.side};
 `;
 const Title = styled.div`
   font-size: 40px;
@@ -21,19 +21,19 @@ const MovieTitle = styled.div`
 const params = {
   slidesPerView: 6.3,
   spaceBetween: 20,
-  //   breakpoints: {
-  //     1024: {
-  //       slidesPerView: 8.3,
-  //     },
-  //     640: {
-  //       slidesPerView: 5.2,
-  //       spaceBetween: 15,
-  //     },
-  //     320: {
-  //       slidesPerView: 3.2,
-  //       spaceBetween: 10,
-  //     },
-  //   },
+  breakpoints: {
+    1024: {
+      slidesPerView: 8.3,
+    },
+    640: {
+      slidesPerView: 5.2,
+      spaceBetween: 15,
+    },
+    320: {
+      slidesPerView: 3.2,
+      spaceBetween: 10,
+    },
+  },
 };
 
 export const Movies = ({ title, movieData }) => {
