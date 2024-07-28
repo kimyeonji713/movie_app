@@ -26,7 +26,7 @@ export const Genres = () => {
       try {
         const { genres: genredata } = await genre();
         setGenreData(genredata);
-        console.log(genredata);
+        // console.log(genredata);
       } catch (error) {
         console.log(error);
         alert("에러 발생");
