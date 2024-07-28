@@ -58,7 +58,7 @@ export const Bar = () => {
   const toggleHandler = () => {
     setMenu(true);
   };
-  console.log(isOpen);
+  // console.log(isOpen);
 
   const {
     register,

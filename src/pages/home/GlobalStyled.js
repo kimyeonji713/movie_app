@@ -2,31 +2,29 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 export const colors = {
-  point: "#B80000",
-  sub: "#666",
-  backsub: "rgba(0, 0, 0, 0.7)",
+  point: "crimson",
 };
 
 export const spacing = {
-  side: "120px",
+  side: "100px",
+  // padding 사이드 값
   moSide: "20px",
 };
 
 export const GlobalStyled = createGlobalStyle`
     ${reset}
 
-    *{box-sizing:border-box}
-
+    *{box-sizing:border-box;}
 
     body{
         font-family: "Noto Sans KR", sans-serif;
-        background-color: #252525;
+        background-color: #1d1d1d;
         color: white;
+        letter-spacing: -1px;
+        word-break: keep-all;
     }
 
-    ul,li{
-        list-style: none;
-    }
+   
 
     a{
         text-decoration: none;
@@ -37,6 +35,4 @@ export const GlobalStyled = createGlobalStyle`
       width: 100%;
       display: block;
     }
-
-    
 `;

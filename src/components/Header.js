@@ -44,7 +44,7 @@ export const Header = () => {
     setMenu(true);
   };
 
-  console.log(isOpen);
+  // console.log(isOpen);
   return (
     <Container>
       <LOGO>
