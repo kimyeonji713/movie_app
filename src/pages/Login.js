@@ -53,7 +53,7 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const Con = styled.div`
+const Text = styled.div`
   display: flex;
   justify-content: center;
   font-size: 13px;
@@ -98,10 +98,10 @@ export const Login = () => {
         <Button $isBtnActive={isValid}>로그인</Button>
       </Form>
 
-      <Con>
+      <Text>
         <p>아이디가 없으신가요?</p>
         <Link to={routes.signup}>회원가입</Link>
-      </Con>
+      </Text>
     </Container>
   );
 };

@@ -1,5 +1,3 @@
-import { Signup } from "../Signup";
-
 export const Home = () => {
-  return <Signup />;
+  return <div></div>;
 };
