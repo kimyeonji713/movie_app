@@ -4,6 +4,7 @@ import reset from "styled-reset";
 export const colors = {
   point: "#B80000",
   sub: "#666",
+  backsub: "rgba(0, 0, 0, 0.7)",
 };
 
 export const spacing = {

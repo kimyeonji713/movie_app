@@ -10,7 +10,7 @@ const Container = styled.div`
   max-width: 500px;
   width: 100%;
   height: 800px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: ${colors.backsub};
   padding: 100px 50px;
   border-radius: 10px;
 `;
@@ -28,7 +28,7 @@ const Form = styled.form`
     width: 100%;
     padding: 10px;
     font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: ${colors.backsub};
     border-radius: 5px;
     color: #fff;
   }

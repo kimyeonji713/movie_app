@@ -5,6 +5,7 @@ import { routes } from "../routes";
 import { FiSearch } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
 import { Bar } from "../pages/home/components/Bar";
+import { useState } from "react";
 
 const Container = styled.header`
   padding: 20px ${spacing.side};
@@ -28,14 +29,22 @@ const Menu = styled.ul`
   display: flex;
   font-size: 20px;
   font-weight: 700;
-`;
 
-const MenuBtn = styled.div`
-  margin-left: 50px;
-  cursor: pointer;
+  button {
+    all: unset;
+    margin-left: 120px;
+    cursor: pointer;
+  }
 `;
 
 export const Header = () => {
+  const [isOpen, setMenu] = useState(false);
+
+  const toggleHandler = () => {
+    setMenu(true);
+  };
+
+  console.log(isOpen);
   return (
     <Container>
       <LOGO>
@@ -49,10 +58,12 @@ export const Header = () => {
           </Link>
         </li>
 
-        <MenuBtn>
+        <button onClick={toggleHandler}>
           <FaBars />
-        </MenuBtn>
+        </button>
       </Menu>
+
+      {isOpen ? <Bar /> : ""}
     </Container>
   );
 };
