@@ -38,7 +38,7 @@ export const Home = () => {
 
   // console.log(trendData);
 
-  // console.log(nowData);
+  console.log(nowData);
   // console.log(isLoading);
   // console.log(`인기영화:  ${popData}`);
   // console.log(`평점 좋음: ${topData}`);

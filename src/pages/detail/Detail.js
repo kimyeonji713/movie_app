@@ -5,13 +5,12 @@ import { movieDetail } from "../../api";
 import { ORIGIN_URL, W500_URL } from "../../constant/imgUrl";
 import { Loading } from "../../components/Loading";
 import { routes } from "../../routes";
+import { useScrollTop } from "../../lib/useScrollTop";
+import { PageTitle } from "../../components/PageTitle";
 
 const Container = styled.div`
   padding: 150px 15%;
   display: flex;
-  @media screen and (max-width: 1300px) {
-    padding: 150px 5%;
-  }
 `;
 
 const CoverImg = styled.img`
@@ -28,11 +27,7 @@ const ConWrap = styled.div`
     margin-bottom: 30px;
   }
 
-  @media screen and (max-width: 1300px) {
-    h3 {
-      font-size: 60px;
-      font-weight: 700;
-    }
+  
   }
 `;
 
@@ -47,24 +42,12 @@ const Info = styled.div`
     margin-right: 15px;
   }
   display: flex;
-
-  @media screen and (max-width: 1300px) {
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: 400;
-  }
-
-  @media screen and (max-width: 768px) {
-    border-radius: 15px;
-    font-size: 10px;
-    font-weight: 400;
-    padding: 10px 3px;
-  }
 `;
 
 const Genres = styled.ul`
   display: flex;
   margin-top: 10px;
+
   a {
     display: block;
     padding: 10px 20px;
@@ -73,10 +56,6 @@ const Genres = styled.ul`
     font-size: 18px;
     font-weight: 400;
     margin-right: 15px;
-  }
-
-  @media screen and (max-width: 1300px) {
-    margin-top: 30px;
   }
 `;
 
@@ -93,29 +72,20 @@ const Desc = styled.div`
   p {
     font-size: 16px;
   }
-
-  @media screen and (max-width: 1300px) {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 20px;
-  }
 `;
 
 export const Detail = () => {
-  // useScrollTop();
+  useScrollTop();
   const [movieData, setMovieData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  // const params = useParams();
+
   const { id: movieId } = useParams();
-  // console.log(params);
-  // console.log(movieId);
 
   useEffect(() => {
     (async () => {
       try {
         const data = await movieDetail(movieId);
-        // console.log(data);
-        // const { data: movieData } = await movieDetail(519182);
+        console.log(data);
 
         setMovieData(data);
         setIsLoading(false);
@@ -124,16 +94,14 @@ export const Detail = () => {
       }
     })();
   }, [movieId]);
-  // 추후에 생길 문제를 방지해줌.
 
-  // console.log(movieData);
   return (
     <>
       {isLoading ? (
         <Loading />
       ) : (
         <Container>
-          {/* <PageTitle title={movieData.title} /> */}
+          <PageTitle title={movieData.title} />
           <CoverImg
             src={ORIGIN_URL + movieData.poster_path}
             alt={movieData.title}
