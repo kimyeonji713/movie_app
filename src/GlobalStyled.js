@@ -10,7 +10,8 @@ export const colors = {
 export const spacing = {
   side: "120px",
   subside: "100px",
-  moSide: "20px",
+  side_1024: "50px",
+  moSide: "30px",
 };
 
 export const GlobalStyled = createGlobalStyle`

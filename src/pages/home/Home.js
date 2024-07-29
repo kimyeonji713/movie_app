@@ -14,6 +14,7 @@ export const Home = () => {
   const [upData, setUpData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [trendData, setTrendData] = useState();
+  // const [number, setNumber] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -30,6 +31,7 @@ export const Home = () => {
         setUpData(upResult);
         setTrendData(trendResult);
         setIsLoading(false);
+        // setNumber(Math.random() * 20);
       } catch (error) {
         console.log(error);
       }

@@ -42,6 +42,14 @@ const Container = styled.header`
     z-index: 10;
     background-color: ${colors.backsub};
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px ${spacing.moSide};
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 20px ${spacing.moSide};
+  }
 `;
 const LOGO = styled.div`
   font-size: 30px;
@@ -59,6 +67,16 @@ const Menu = styled.ul`
     all: unset;
     margin-left: 120px;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 400px) {
+    a {
+      display: none;
+    }
+    button {
+      margin-left: 0px;
+      cursor: pointer;
+    }
   }
 `;
 

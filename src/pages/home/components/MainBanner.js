@@ -27,17 +27,48 @@ const Container = styled.section`
     opacity: 0.7;
   }
 
+  @media screen and (max-width: 1024px) {
+    padding: 420px ${spacing.side_1024} 0 ${spacing.side_1024};
+    h3 {
+      font-size: 65px;
+      transform: translateY(70px);
+    }
+    p {
+      font-size: 18px;
+      line-height: 20px;
+      transform: translateY(70px);
+    }
+  }
+
   @media screen and (max-width: 768px) {
     padding: 550px ${spacing.moSide} 0 ${spacing.moSide};
     h3 {
       font-size: 40px;
       margin-bottom: 15px;
+      transform: translateY(0px);
     }
     p {
       max-width: 500px;
       width: 100%;
       font-size: 14px;
       line-height: 20px;
+      transform: translateY(0px);
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 550px ${spacing.moSide} 0 ${spacing.moSide};
+    h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      transform: translateY(-50px);
+    }
+    p {
+      max-width: 300px;
+      width: 100%;
+      font-size: 14px;
+      line-height: 20px;
+      transform: translateY(-50px);
     }
   }
 `;
@@ -78,10 +109,50 @@ const BtnWrap = styled.div`
     background-color: ${colors.backsub};
     border: 2px solid #555;
   }
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 100px;
+    button {
+      width: 200px;
+      height: 40px;
+      margin-right: 20px;
+      font-size: 14px;
+      border-radius: 20px;
+      padding: 5px 5px;
+      border: 0px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+    button {
+      width: 200px;
+      height: 40px;
+      margin-right: 15px;
+      font-size: 14px;
+      border-radius: 20px;
+      padding: 5px 5px;
+      border: 0px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-top: -35px;
+    button {
+      width: 120px;
+      height: 40px;
+      margin-right: 20px;
+      font-size: 14px;
+      border-radius: 20px;
+      padding: 5px 5px;
+      border: 0px;
+    }
+  }
 `;
 
 export const MainBanner = ({ movieData }) => {
   // console.log(movieData);
+  // const numData = movieData[num];
   return (
     <Container $bgUrl={movieData.backdrop_path}>
       <BlackBg />
