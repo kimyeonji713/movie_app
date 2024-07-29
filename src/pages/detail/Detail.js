@@ -4,27 +4,118 @@ import styled from "styled-components";
 import { movieDetail } from "../../api";
 import { ORIGIN_URL, W500_URL } from "../../constant/imgUrl";
 import { Loading } from "../../components/Loading";
+import { routes } from "../../routes";
 
 const Container = styled.div`
-  padding: 100px;
-  width: 100%;
+  padding: 150px 15%;
+  display: flex;
+  @media screen and (max-width: 1300px) {
+    padding: 150px 5%;
+  }
 `;
-const CoverImg = styled.img``;
-const ConWrap = styled.div``;
-const Info = styled.div``;
-const Genres = styled.div``;
-const Desc = styled.div``;
+
+const CoverImg = styled.img`
+  width: 45%;
+  margin-right: 5%;
+  object-fit: cover;
+`;
+
+const ConWrap = styled.div`
+  width: 40%;
+  h3 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    h3 {
+      font-size: 60px;
+      font-weight: 700;
+    }
+  }
+`;
+
+const Info = styled.div`
+  span {
+    display: block;
+    padding: 10px 20px;
+    background-color: #333;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 15px;
+  }
+  display: flex;
+
+  @media screen and (max-width: 1300px) {
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 768px) {
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: 400;
+    padding: 10px 3px;
+  }
+`;
+
+const Genres = styled.ul`
+  display: flex;
+  margin-top: 10px;
+  a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #333;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 15px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    margin-top: 30px;
+  }
+`;
+
+const Desc = styled.div`
+  font-weight: 400;
+  opacity: 0.7;
+  margin-top: 100px;
+  line-height: 30px;
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+`;
 
 export const Detail = () => {
-  const [isLoding, setIsLoading] = useState(false);
+  // useScrollTop();
   const [movieData, setMovieData] = useState();
-
+  const [isLoading, setIsLoading] = useState(true);
+  // const params = useParams();
   const { id: movieId } = useParams();
+  // console.log(params);
+  // console.log(movieId);
+
   useEffect(() => {
     (async () => {
       try {
         const data = await movieDetail(movieId);
-        console.log(data);
+        // console.log(data);
+        // const { data: movieData } = await movieDetail(519182);
 
         setMovieData(data);
         setIsLoading(false);
@@ -33,37 +124,43 @@ export const Detail = () => {
       }
     })();
   }, [movieId]);
+  // 추후에 생길 문제를 방지해줌.
 
+  // console.log(movieData);
   return (
     <>
-      {isLoding ? (
+      {isLoading ? (
         <Loading />
       ) : (
         <Container>
+          {/* <PageTitle title={movieData.title} /> */}
           <CoverImg
-            src={ORIGIN_URL + movieData?.backdrop_path}
-            alt={movieData?.title}
+            src={ORIGIN_URL + movieData.poster_path}
+            alt={movieData.title}
           />
           <ConWrap>
-            <h3>{movieData?.title}</h3>
+            <h3>{movieData.title}</h3>
+            <Info>
+              <span>{movieData.release_date}</span>
+
+              <span>{Math.round(movieData.vote_average)}점</span>
+
+              <span>{movieData.runtime}분</span>
+            </Info>
+
+            <Genres>
+              {movieData.genres.map((genre) => (
+                <li key={genre.id}>
+                  <a href={`/#/genre/${genre.id}`}>{genre.name}</a>
+                </li>
+              ))}
+            </Genres>
+
+            <Desc>
+              <h3>줄거리 요약</h3>
+              <p>{movieData.overview}</p>
+            </Desc>
           </ConWrap>
-
-          <Info>
-            <span>{movieData?.release_date}</span>
-            <span>{movieData?.runtime}분</span>
-            <span>{Math.round(movieData?.vote_average)}점</span>
-          </Info>
-
-          <Genres>
-            {movieData?.genres.map((genre) => (
-              <li key={genre?.id}>{genre?.name}</li>
-            ))}
-          </Genres>
-
-          <Desc>
-            <h3>줄거리</h3>
-            <p>{movieData?.overview}</p>
-          </Desc>
         </Container>
       )}
     </>
