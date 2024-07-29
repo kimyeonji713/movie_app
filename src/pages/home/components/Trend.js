@@ -6,9 +6,6 @@ import { W500_URL } from "../../../constant/imgUrl";
 
 const Section = styled.section`
   padding: 80px 0 0 ${spacing.side};
-  img {
-    border-radius: 20px;
-  }
 `;
 const Title = styled.div`
   font-size: 40px;
@@ -22,32 +19,51 @@ const MovieTitle = styled.div`
 `;
 
 const params = {
-  slidesPerView: 6.3,
-  spaceBetween: 20,
+  slidesPerView: 5.2,
+  spaceBetween: 90,
   breakpoints: {
     1024: {
-      slidesPerView: 8.3,
+      slidesPerView: 5.3,
     },
     640: {
-      slidesPerView: 5.2,
+      slidesPerView: 3.2,
       spaceBetween: 15,
     },
     320: {
-      slidesPerView: 3.2,
+      slidesPerView: 2.2,
       spaceBetween: 10,
     },
   },
 };
 
-export const Movies = ({ title, movieData }) => {
+const Con = styled.div`
+  display: flex;
+  img {
+    transform: translate();
+    z-index: 9;
+    width: 100%;
+    border-radius: 20px;
+  }
+`;
+const Num = styled.div`
+  font-family: "Moirai One", system-ui;
+  font-size: 120px;
+  letter-spacing: -8px;
+  /* transform: translateX(8px); */
+`;
+
+export const Trend = ({ title, movieData }) => {
   return (
     <Section>
       <Title>{title}</Title>
       <Swiper {...params}>
-        {movieData.map((data) => (
+        {movieData.map((data, index) => (
           <SwiperSlide key={data.id}>
             <Link to={`/detail/${data.id}`}>
-              <img src={`${W500_URL}${data.poster_path}`} alt="" />
+              <Con>
+                <Num>{index + 1}</Num>
+                <img src={`${W500_URL}${data.poster_path}`} alt={data.title} />
+              </Con>
               <MovieTitle>{data.title}</MovieTitle>
             </Link>
           </SwiperSlide>

@@ -5,6 +5,7 @@ import { MainBanner } from "./components/MainBanner";
 import { Movies } from "./components/Movies";
 import "swiper/css";
 import { Genres } from "./components/Genres";
+import { Trend } from "./components/Trend";
 
 export const Home = () => {
   const [nowData, setNowData] = useState();
@@ -51,7 +52,7 @@ export const Home = () => {
         <>
           <MainBanner movieData={nowData[0]} />
           <Genres />
-          <Movies title="실시간 🔥" movieData={trendData} />
+          <Trend title="실시간 🔥" movieData={trendData} />
           <Movies title="현재 상영 영화" movieData={nowData} />
           <Movies title="인기 영화" movieData={popData} />
           <Movies title="평점 좋음" movieData={topData} />

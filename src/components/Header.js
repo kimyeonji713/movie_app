@@ -80,7 +80,7 @@ export const Header = () => {
     setScrollPosition(scrollPosition);
   });
 
-  console.log(scrollPosition);
+  // console.log(scrollPosition);
 
   // console.log(isOpen);
   return (
