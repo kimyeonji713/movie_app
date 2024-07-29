@@ -35,7 +35,7 @@ export const Home = () => {
     })();
   }, []);
 
-  console.log(trendData);
+  // console.log(trendData);
 
   // console.log(nowData);
   // console.log(isLoading);

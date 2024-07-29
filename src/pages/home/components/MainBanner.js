@@ -75,7 +75,8 @@ const BtnWrap = styled.div`
   }
 
   .plus {
-    background-color: ${colors.sub};
+    background-color: ${colors.backsub};
+    border: 2px solid #555;
   }
 `;
 

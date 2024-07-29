@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { colors } from "../../../GlobalStyled";
+import { routes } from "../../../routes";
 
 const Section = styled.section`
   padding: 50px 0 0 50px;
@@ -11,16 +12,22 @@ const Section = styled.section`
 
 const Con = styled.div`
   padding: 15px;
-  background-color: ${colors.point};
+  background-color: #444;
   text-align: center;
   font-size: 19px;
   font-weight: 600;
-  border: 2px solid ${colors.backsub};
   border-radius: 25px;
+  .original {
+    background-color: #444;
+  }
+  .active {
+    background-color: ${colors.point};
+  }
 `;
 
 export const Genres = () => {
   const [genreData, setGenreData] = useState();
+
   useEffect(() => {
     (async () => {
       try {

@@ -48,7 +48,7 @@ export const Header = () => {
   return (
     <Container>
       <LOGO>
-        <Link to={routes.home}>MOVIE</Link>
+        <Link to={routes.home}>RE:MOVIE</Link>
       </LOGO>
 
       <Menu>
