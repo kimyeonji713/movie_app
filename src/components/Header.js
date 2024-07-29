@@ -5,7 +5,7 @@ import { routes } from "../routes";
 import { FiSearch } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
 import { Bar } from "../pages/home/components/Bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Container = styled.header`
   padding: 20px ${spacing.side};
@@ -17,6 +17,31 @@ const Container = styled.header`
   top: 0;
   left: 0;
   z-index: 10;
+
+  .original {
+    padding: 20px ${spacing.side};
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .active {
+    padding: 20px ${spacing.side};
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: ${colors.backsub};
+  }
 `;
 const LOGO = styled.div`
   font-size: 30px;
@@ -39,14 +64,30 @@ const Menu = styled.ul`
 
 export const Header = () => {
   const [isOpen, setMenu] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const toggleHandler = () => {
     setMenu(true);
   };
 
+  const scrollHandler = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+
+    setScrollPosition(scrollPosition);
+  });
+
+  console.log(scrollPosition);
+
   // console.log(isOpen);
   return (
-    <Container>
+    <Container
+      className={scrollPosition < 100 ? "original" : "active"}
+      onScroll={scrollHandler}
+    >
       <LOGO>
         <Link to={routes.home}>RE:MOVIE</Link>
       </LOGO>
