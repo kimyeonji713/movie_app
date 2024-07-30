@@ -14,15 +14,16 @@ export const GenresList = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { genres: genredata } = await genre();
-        setGenreData(genredata);
-        // console.log(genredata);
+        const { results: genreResult } = await genre();
+        setGenreData(genreResult);
       } catch (error) {
         console.log(error);
         alert("에러 발생");
       }
     })();
   }, []);
+
+  console.log(genreData);
   return (
     <Container>
       <Genres />

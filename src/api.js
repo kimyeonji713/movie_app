@@ -38,9 +38,10 @@ export const movieDetail = (movie_id) =>
 // export const similar = (movie_id) =>
 //   fetch(url(`movie/${movie_id}/similar`), options).then((res) => res.json());
 
-// export const searchMovie = (keyword) => {
-//   const searchUrl = baseUrl + `search/movie?query=${keyword}&language=ko-kr`;
-// };
+export const searchMovie = (keyword) => {
+  const searchUrl = baseUrl + `search/movie?query=${keyword}&language=ko-kr`;
+  return fetch(searchUrl, options).then((res) => res.json());
+};
 
 export const genre = () => {
   const genrelUrl = baseUrl + `genre/movie/list?language=ko-kr`;

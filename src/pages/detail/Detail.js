@@ -7,6 +7,7 @@ import { Loading } from "../../components/Loading";
 import { routes } from "../../routes";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { PageTitle } from "../../components/PageTitle";
+import { spacing } from "../../GlobalStyled";
 
 const Container = styled.div`
   padding: 150px 15%;
@@ -16,10 +17,11 @@ const Container = styled.div`
     padding: 150px 10%;
   }
   @media screen and (max-width: 768px) {
-    padding: 150px 10%;
+    padding: 150px ${spacing.moSide};
   }
   @media screen and (max-width: 400px) {
-    padding: 150px 10%;
+    padding: 150px ${spacing.moSide};
+    flex-direction: column;
   }
 `;
 
@@ -27,16 +29,24 @@ const CoverImg = styled.img`
   width: 45%;
   margin-right: 5%;
   object-fit: cover;
+  margin-bottom: 0;
   @media screen and (max-width: 1024px) {
     width: 45%;
     margin-right: 5%;
     object-fit: cover;
+    margin-bottom: 0;
   }
   @media screen and (max-width: 768px) {
-    padding: 150px 10%;
+    width: 48%;
+    margin-right: 8%;
+    object-fit: cover;
+    margin-bottom: 0;
   }
   @media screen and (max-width: 400px) {
-    padding: 150px 10%;
+    width: 100%;
+    margin-right: 0%;
+    object-fit: cover;
+    margin-bottom: 20px;
   }
 `;
 
@@ -46,6 +56,31 @@ const ConWrap = styled.div`
     font-size: 60px;
     font-weight: 700;
     margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 40%;
+    h3 {
+      font-size: 55px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 40%;
+    h3 {
+      font-size: 45px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    h3 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
   }
 `;
 
@@ -60,6 +95,40 @@ const Info = styled.div`
     margin-right: 15px;
   }
   display: flex;
+
+  @media screen and (max-width: 1024px) {
+    span {
+      display: block;
+      padding: 10px 20px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    span {
+      display: block;
+      padding: 10px 10px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    span {
+      display: block;
+      padding: 10px 20px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
 `;
 
 const Genres = styled.ul`
@@ -75,6 +144,46 @@ const Genres = styled.ul`
     font-weight: 400;
     margin-right: 15px;
   }
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 10px;
+
+    a {
+      display: block;
+      padding: 10px 25px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+
+    a {
+      display: block;
+      padding: 10px 20px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    margin-top: 10px;
+
+    a {
+      display: block;
+      padding: 10px 20px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
 `;
 
 const Desc = styled.div`
@@ -89,6 +198,49 @@ const Desc = styled.div`
 
   p {
     font-size: 16px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 80px;
+    line-height: 25px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 100px;
+    line-height: 25px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 80px;
+    line-height: 30px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
 `;
 
