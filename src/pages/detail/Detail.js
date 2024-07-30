@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { movieDetail } from "../../api";
 import { ORIGIN_URL, W500_URL } from "../../constant/imgUrl";
@@ -7,7 +7,8 @@ import { Loading } from "../../components/Loading";
 import { routes } from "../../routes";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { PageTitle } from "../../components/PageTitle";
-import { spacing } from "../../GlobalStyled";
+import { colors, spacing } from "../../GlobalStyled";
+import { FaPlay } from "react-icons/fa";
 
 const Container = styled.div`
   padding: 150px 15%;
@@ -243,6 +244,27 @@ const Desc = styled.div`
     }
   }
 `;
+const BtnWrap = styled.div`
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  button {
+    width: 200px;
+    height: 40px;
+    margin-right: 30px;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 1px solid #555;
+    margin-top: 20px;
+    color: #fff;
+  }
+
+  .trailer {
+    background-color: ${colors.point};
+  }
+`;
 
 export const Detail = () => {
   useScrollTop();
@@ -298,6 +320,12 @@ export const Detail = () => {
               <h3>줄거리 요약</h3>
               <p>{movieData.overview}</p>
             </Desc>
+
+            <BtnWrap>
+              <button className="trailer">
+                <FaPlay /> 예고편
+              </button>
+            </BtnWrap>
           </ConWrap>
         </Container>
       )}

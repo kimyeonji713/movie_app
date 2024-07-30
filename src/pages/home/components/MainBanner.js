@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import { ORIGIN_URL } from "../../../constant/imgUrl";
 import { colors, spacing } from "../../../GlobalStyled";
-import { FaPlay, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaPlay, FaPlus } from "react-icons/fa";
 import { routes } from "../../../routes";
-import { useEffect, useState } from "react";
-import { trending } from "../../../api";
 
 const Container = styled.section`
   height: 80vh;
@@ -156,25 +154,25 @@ export const MainBanner = ({ movieData }) => {
   // console.log(movieData);
   // const numData = movieData[num];
 
-  const [trendData, setTrendData] = useState();
+  // const [trendData, setTrendData] = useState();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const { results: trendResult } = await trending();
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const { results: trendResult } = await trending();
 
-        setTrendData(trendResult);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  //       setTrendData(trendResult);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, []);
 
-  console.log(trendData);
+  // console.log(trendData);
 
-  const ranData = () => {
-    Math.round(Math.random() * 10);
-  };
+  // const ranData = () => {
+  //   Math.round(Math.random() * 10);
+  // };
   return (
     <Container $bgUrl={movieData.backdrop_path}>
       <BlackBg />
