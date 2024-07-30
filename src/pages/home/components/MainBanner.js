@@ -4,6 +4,8 @@ import { colors, spacing } from "../../../GlobalStyled";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { routes } from "../../../routes";
+import { useEffect, useState } from "react";
+import { trending } from "../../../api";
 
 const Container = styled.section`
   height: 80vh;
@@ -153,6 +155,26 @@ const BtnWrap = styled.div`
 export const MainBanner = ({ movieData }) => {
   // console.log(movieData);
   // const numData = movieData[num];
+
+  const [trendData, setTrendData] = useState();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { results: trendResult } = await trending();
+
+        setTrendData(trendResult);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  console.log(trendData);
+
+  const ranData = () => {
+    Math.round(Math.random() * 10);
+  };
   return (
     <Container $bgUrl={movieData.backdrop_path}>
       <BlackBg />
