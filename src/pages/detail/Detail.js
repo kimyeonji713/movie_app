@@ -11,12 +11,33 @@ import { PageTitle } from "../../components/PageTitle";
 const Container = styled.div`
   padding: 150px 15%;
   display: flex;
+
+  @media screen and (max-width: 1024px) {
+    padding: 150px 10%;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 150px 10%;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 150px 10%;
+  }
 `;
 
 const CoverImg = styled.img`
   width: 45%;
   margin-right: 5%;
   object-fit: cover;
+  @media screen and (max-width: 1024px) {
+    width: 45%;
+    margin-right: 5%;
+    object-fit: cover;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 150px 10%;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 150px 10%;
+  }
 `;
 
 const ConWrap = styled.div`
@@ -25,9 +46,6 @@ const ConWrap = styled.div`
     font-size: 60px;
     font-weight: 700;
     margin-bottom: 30px;
-  }
-
-  
   }
 `;
 

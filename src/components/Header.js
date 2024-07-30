@@ -18,19 +18,7 @@ const Container = styled.header`
   left: 0;
   z-index: 10;
 
-  .original {
-    padding: 20px ${spacing.side};
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
-
-  .active {
+  &.active {
     padding: 20px ${spacing.side};
     width: 100%;
     display: flex;
@@ -45,10 +33,34 @@ const Container = styled.header`
 
   @media screen and (max-width: 768px) {
     padding: 20px ${spacing.moSide};
+    &.active {
+      padding: 20px ${spacing.moSide};
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background-color: ${colors.backsub};
+    }
   }
 
   @media screen and (max-width: 400px) {
     padding: 20px ${spacing.moSide};
+    &.active {
+      padding: 20px ${spacing.moSide};
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background-color: ${colors.backsub};
+    }
   }
 `;
 const LOGO = styled.div`
@@ -103,7 +115,7 @@ export const Header = () => {
   // console.log(isOpen);
   return (
     <Container
-      className={scrollPosition < 100 ? "original" : "active"}
+      className={scrollPosition < 100 ? " " : "active"}
       onScroll={scrollHandler}
     >
       <LOGO>

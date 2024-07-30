@@ -9,16 +9,71 @@ const Section = styled.section`
   img {
     border-radius: 20px;
   }
+
+  @media screen and (max-width: 1024px) {
+    padding: 80px 0 0 ${spacing.side};
+    img {
+      border-radius: 20px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 80px 0 0 ${spacing.moSide};
+    img {
+      border-radius: 20px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 80px 0 0 ${spacing.moSide};
+    img {
+      border-radius: 20px;
+    }
+  }
 `;
 const Title = styled.div`
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 30px;
+  @media screen and (max-width: 1024px) {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
 `;
 
 const MovieTitle = styled.div`
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 18px;
+  line-height: 21px;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    margin-top: 16px;
+    line-height: 21px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 18px;
+    margin-top: 20px;
+  }
 `;
 
 const params = {
@@ -28,11 +83,11 @@ const params = {
     1024: {
       slidesPerView: 8.3,
     },
-    640: {
+    768: {
       slidesPerView: 5.2,
       spaceBetween: 15,
     },
-    320: {
+    400: {
       slidesPerView: 3.2,
       spaceBetween: 10,
     },

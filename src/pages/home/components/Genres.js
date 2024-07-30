@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { genre } from "../../../api";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLinkClickHandler } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { colors } from "../../../GlobalStyled";
-import { routes } from "../../../routes";
 
 const Section = styled.section`
   padding: 50px 0 0 50px;
@@ -17,16 +16,15 @@ const Con = styled.div`
   font-size: 19px;
   font-weight: 600;
   border-radius: 25px;
-  .original {
-    background-color: #444;
-  }
-  .active {
+
+  &.active {
     background-color: ${colors.point};
   }
 `;
 
 export const Genres = () => {
   const [genreData, setGenreData] = useState();
+  const [clickColor, setColor] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -34,12 +32,15 @@ export const Genres = () => {
         const { genres: genredata } = await genre();
         setGenreData(genredata);
         // console.log(genredata);
+        setColor(true);
       } catch (error) {
         console.log(error);
         alert("에러 발생");
       }
     })();
   }, []);
+
+  const clickHandler = () => {};
 
   const params = {
     slidesPerView: 8.2,
@@ -49,11 +50,11 @@ export const Genres = () => {
         slidesPerView: 7.2,
         spaceBetween: 20,
       },
-      640: {
+      768: {
         slidesPerView: 4.2,
         spaceBetween: 30,
       },
-      320: {
+      400: {
         slidesPerView: 3.2,
         spaceBetween: 10,
       },
@@ -65,8 +66,8 @@ export const Genres = () => {
       <Swiper {...params}>
         {genreData?.map((data) => (
           <SwiperSlide key={data.id}>
-            <Link to={`/genre/${data.id}`}>
-              <Con>{data.name}</Con>
+            <Link to={`/genre/${data.id}`} onClick={clickHandler}>
+              <Con className={clickColor ? "" : "active"}>{data.name}</Con>
             </Link>
           </SwiperSlide>
         ))}
