@@ -1,44 +1,66 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { spacing } from "../../../GlobalStyled";
+import { size, spacing } from "../../../GlobalStyled";
 import { W500_URL } from "../../../constant/imgUrl";
 
 const Section = styled.section`
   padding: 80px 0 0 ${spacing.side};
   overflow: unset;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     padding: 80px 0 0 ${spacing.side};
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     padding: 80px 0 0 ${spacing.moSide};
   }
-  @media screen and (max-width: 400px) {
-    padding: 80px 0 0 ${spacing.side};
+  @media screen and (max-width: ${size.size368}) {
+    padding: 80px 0 0 ${spacing.moSide};
   }
 `;
 const Title = styled.div`
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 30px;
+
+  @media screen and (max-width: ${size.size1024}) {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: ${size.size768}) {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: ${size.size368}) {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 35px;
+  }
 `;
 
 const MovieTitle = styled.div`
   font-size: 20px;
   margin-left: 20%;
+  margin-top: 5px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     font-size: 18px;
+    margin-left: 25%;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     font-size: 18px;
+    margin-left: 25%;
   }
 
-  @media screen and (max-width: 400px) {
-    font-size: 18px;
+  @media screen and (max-width: ${size.size368}) {
+    font-size: 14px;
+    margin-left: 25%;
   }
 `;
 
@@ -54,9 +76,9 @@ const params = {
       slidesPerView: 3.2,
       spaceBetween: 60,
     },
-    400: {
+    368: {
       slidesPerView: 2.2,
-      spaceBetween: 50,
+      spaceBetween: 40,
     },
   },
 };
@@ -70,7 +92,7 @@ const Con = styled.div`
     width: 100%;
     border-radius: 20px;
     margin-left: 20%;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: ${size.size1024}) {
       img {
         position: absolute;
         top: 0;
@@ -78,7 +100,7 @@ const Con = styled.div`
       }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: ${size.size768}) {
       img {
         position: absolute;
         top: 0;
@@ -86,7 +108,7 @@ const Con = styled.div`
       }
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: ${size.size368}) {
       img {
         position: absolute;
         top: 0;
@@ -104,24 +126,24 @@ const Num = styled.div`
   color: #252525;
   font-size: 150px;
   letter-spacing: -8px;
-  @media screen and (max-width: 1024px) {
-    font-size: 80px;
+  @media screen and (max-width: ${size.size1024}) {
+    font-size: 90px;
     position: absolute;
     bottom: 0;
     left: 0;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     font-size: 70px;
     position: absolute;
     bottom: 0;
-    left: -10px;
+    left: 25px;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     font-size: 70px;
     position: absolute;
     bottom: 0;
-    left: -10px;
+    left: -5px;
   }
 `;
 

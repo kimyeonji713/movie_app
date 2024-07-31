@@ -32,6 +32,22 @@ const Container = styled.header`
     background-color: ${colors.backsub};
   }
 
+  @media screen and (max-width: ${size.size1024}) {
+    padding: 20px ${spacing.side_1024};
+    &.active {
+      padding: 20px ${spacing.moSide};
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background-color: ${colors.backsub};
+    }
+  }
+
   @media screen and (max-width: ${size.size768}) {
     padding: 20px ${spacing.moSide};
     &.active {
@@ -70,6 +86,27 @@ const LOGO = styled.div`
   a {
     color: ${colors.point};
   }
+  @media screen and (max-width: ${size.size1024}) {
+    font-size: 30px;
+    font-weight: 900;
+    a {
+      color: ${colors.point};
+    }
+  }
+  @media screen and (max-width: ${size.size768}) {
+    font-size: 28px;
+    font-weight: 900;
+    a {
+      color: ${colors.point};
+    }
+  }
+  @media screen and (max-width: ${size.size368}) {
+    font-size: 25px;
+    font-weight: 900;
+    a {
+      color: ${colors.point};
+    }
+  }
 `;
 const Menu = styled.ul`
   display: flex;
@@ -82,12 +119,27 @@ const Menu = styled.ul`
     cursor: pointer;
   }
 
-  @media screen and (max-width: ${size.size368}) {
-    a {
-      display: none;
-    }
+  @media screen and (max-width: ${size.size1024}) {
+    display: flex;
+    font-size: 25px;
+    font-weight: 700;
+
     .login {
-      margin-left: 0px;
+      all: unset;
+      margin-left: 120px;
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: ${size.size768}) {
+    .login {
+      margin-left: 80px;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: ${size.size368}) {
+    .login {
+      margin-left: 30px;
       cursor: pointer;
     }
   }
@@ -136,7 +188,7 @@ export const Header = () => {
 
         <li className="login">
           <Link to={routes.login}>
-          <GoPerson />
+            <GoPerson />
           </Link>
         </li>
       </Menu>

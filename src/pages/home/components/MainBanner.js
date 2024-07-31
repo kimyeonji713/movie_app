@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ORIGIN_URL } from "../../../constant/imgUrl";
-import { colors, spacing } from "../../../GlobalStyled";
+import { colors, size, spacing } from "../../../GlobalStyled";
 import { Link } from "react-router-dom";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import { routes } from "../../../routes";
@@ -27,7 +27,7 @@ const Container = styled.section`
     opacity: 0.7;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     padding: 420px ${spacing.side_1024} 0 ${spacing.side_1024};
     h3 {
       font-size: 65px;
@@ -40,15 +40,15 @@ const Container = styled.section`
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     padding: 550px ${spacing.moSide} 0 ${spacing.moSide};
     h3 {
       font-size: 40px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
       transform: translateY(0px);
     }
     p {
-      max-width: 500px;
+      max-width: 550px;
       width: 100%;
       font-size: 14px;
       line-height: 20px;
@@ -56,11 +56,11 @@ const Container = styled.section`
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     padding: 550px ${spacing.moSide} 0 ${spacing.moSide};
     h3 {
       font-size: 30px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
       transform: translateY(-50px);
     }
     p {
@@ -101,16 +101,12 @@ const BtnWrap = styled.div`
     border: 0px;
   }
 
-  .trailer {
-    background-color: ${colors.point};
-  }
-
   .plus {
     background-color: ${colors.backsub};
     border: 2px solid #555;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     margin-top: 100px;
     button {
       width: 200px;
@@ -123,8 +119,8 @@ const BtnWrap = styled.div`
     }
   }
 
-  @media screen and (max-width: 768px) {
-    margin-top: 30px;
+  @media screen and (max-width: ${size.size768}) {
+    margin-top: 20px;
     button {
       width: 200px;
       height: 40px;
@@ -136,8 +132,8 @@ const BtnWrap = styled.div`
     }
   }
 
-  @media screen and (max-width: 400px) {
-    margin-top: -35px;
+  @media screen and (max-width: ${size.size368}) {
+    margin-top: -20px;
     button {
       width: 120px;
       height: 40px;
@@ -179,13 +175,13 @@ export const MainBanner = ({ movieData }) => {
       <h3>{movieData.title}</h3>
       <p>{movieData.overview.slice(0, 100) + "..."}</p>
       <BtnWrap>
-        <button className="trailer">
+        {/* <button className="trailer">
           <Link to={""}>
             <FaPlay /> 예고편
           </Link>
-        </button>
+        </button> */}
         <button className="plus">
-          <Link to={routes.detail}>
+          <Link to={`/detail/${movieData.id}`}>
             <FaPlus /> 더보기
           </Link>
         </button>
