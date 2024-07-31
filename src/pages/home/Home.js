@@ -14,7 +14,23 @@ import "swiper/css";
 import { Genres } from "./components/Genres";
 import { Trend } from "./components/Trend";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { GrLinkTop } from "react-icons/gr";
+import styled from "styled-components";
+import { colors } from "../../GlobalStyled";
 
+const Topbtn = styled.button`
+  all: unset;
+  padding: 10px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  background-color: firebrick;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+`;
 export const Home = () => {
   useScrollTop();
   const [nowData, setNowData] = useState();
@@ -24,6 +40,13 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [trendData, setTrendData] = useState();
   const [number, setNumber] = useState(0);
+
+  const topHandler = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     (async () => {
@@ -67,6 +90,9 @@ export const Home = () => {
           <Movies title="인기 영화" movieData={popData} />
           <Movies title="평점 좋음" movieData={topData} />
           <Movies title="개봉 예정" movieData={upData} />
+          <Topbtn onClick={topHandler}>
+            <GrLinkTop />
+          </Topbtn>
         </>
       )}
     </>
