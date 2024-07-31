@@ -73,11 +73,11 @@ const params = {
       spaceBetween: 80,
     },
     768: {
-      slidesPerView: 3.2,
+      slidesPerView: 3.3,
       spaceBetween: 60,
     },
     368: {
-      slidesPerView: 2.2,
+      slidesPerView: 2.3,
       spaceBetween: 40,
     },
   },

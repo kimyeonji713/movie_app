@@ -48,7 +48,7 @@ const Title = styled.div`
   }
 
   @media screen and (max-width: ${size.size368}) {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 700;
     margin-bottom: 30px;
   }
@@ -65,14 +65,15 @@ const MovieTitle = styled.div`
   }
 
   @media screen and (max-width: ${size.size768}) {
-    font-size: 16px;
-    margin-top: 16px;
-    line-height: 21px;
+    font-size: 15px;
+    margin-top: 12px;
+    line-height: 20px;
   }
 
   @media screen and (max-width: ${size.size368}) {
-    font-size: 18px;
-    margin-top: 20px;
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 16px;
   }
 `;
 
@@ -84,11 +85,11 @@ const params = {
       slidesPerView: 8.3,
     },
     768: {
-      slidesPerView: 5.2,
+      slidesPerView: 4.3,
       spaceBetween: 15,
     },
-    400: {
-      slidesPerView: 3.2,
+    368: {
+      slidesPerView: 3.3,
       spaceBetween: 10,
     },
   },
