@@ -14,6 +14,13 @@ export const spacing = {
   moSide: "30px",
 };
 
+export const size = {
+  size1024: "1024px",
+  size768: "1024px",
+  size368: "1024px",
+
+}
+
 export const GlobalStyled = createGlobalStyle`
     ${reset}
 

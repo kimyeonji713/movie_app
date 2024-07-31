@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { colors, spacing } from "../GlobalStyled";
+import { colors, size, spacing } from "../GlobalStyled";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { FiSearch } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
 import { Bar } from "../pages/home/components/Bar";
 import { useEffect, useState } from "react";
+import { GoPerson } from "react-icons/go";
 
 const Container = styled.header`
   padding: 20px ${spacing.side};
@@ -31,7 +32,7 @@ const Container = styled.header`
     background-color: ${colors.backsub};
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     padding: 20px ${spacing.moSide};
     &.active {
       padding: 20px ${spacing.moSide};
@@ -47,7 +48,7 @@ const Container = styled.header`
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     padding: 20px ${spacing.moSide};
     &.active {
       padding: 20px ${spacing.moSide};
@@ -72,20 +73,20 @@ const LOGO = styled.div`
 `;
 const Menu = styled.ul`
   display: flex;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
 
-  button {
+  .login {
     all: unset;
     margin-left: 120px;
     cursor: pointer;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     a {
       display: none;
     }
-    button {
+    .login {
       margin-left: 0px;
       cursor: pointer;
     }
@@ -129,9 +130,15 @@ export const Header = () => {
           </Link>
         </li>
 
-        <button onClick={toggleHandler}>
+        {/* <button onClick={toggleHandler}>
           <FaBars />
-        </button>
+        </button> */}
+
+        <li className="login">
+          <Link to={routes.login}>
+          <GoPerson />
+          </Link>
+        </li>
       </Menu>
 
       {isOpen ? <Bar /> : ""}
