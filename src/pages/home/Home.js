@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { nowPlaying, popular, topRated, trending, upcoming } from "../../api";
+import {
+  latest,
+  nowPlaying,
+  popular,
+  topRated,
+  trending,
+  upcoming,
+} from "../../api";
 import { Loading } from "../../components/Loading";
 import { MainBanner } from "./components/MainBanner";
 import { Movies } from "./components/Movies";
@@ -33,15 +40,13 @@ export const Home = () => {
         setTopData(topResult);
         setUpData(upResult);
         setTrendData(trendResult);
+
         setIsLoading(false);
-        // setNumber(Math.random() * 20);
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
-
-  // console.log(trendData);
 
   // console.log(nowData);
   // console.log(isLoading);
@@ -55,7 +60,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
-          <MainBanner movieData={nowData} numData={number} />
+          <MainBanner movieData={trendData} numData={number} />
           <Genres />
           <Trend title="실시간 🔥" movieData={trendData} />
           <Movies title="현재 상영 영화" movieData={nowData} />

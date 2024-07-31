@@ -22,7 +22,7 @@ const Con = styled.div`
   }
 `;
 
-export const Genres = () => {
+export const Genres = ({ index }) => {
   const [genreData, setGenreData] = useState();
   const [clickColor, setColor] = useState(false);
 
@@ -41,6 +41,7 @@ export const Genres = () => {
   }, []);
 
   const clickHandler = () => {};
+  // const actHandler = () => {};
 
   const params = {
     slidesPerView: 8.2,
@@ -67,7 +68,7 @@ export const Genres = () => {
         {genreData?.map((data) => (
           <SwiperSlide key={data.id}>
             <Link to={`/genre/${data.id}`} onClick={clickHandler}>
-              <Con className={clickColor ? "" : "active"}>{data.name}</Con>
+              <Con>{data.name}</Con>
             </Link>
           </SwiperSlide>
         ))}

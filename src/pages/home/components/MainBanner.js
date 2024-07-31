@@ -166,7 +166,7 @@ export const MainBanner = ({ movieData, numData }) => {
 
   // console.log(trendData);
 
-  console.log(randomData);
+  // console.log(randomData);
 
   return (
     <Container $bgUrl={randomData?.backdrop_path}>
