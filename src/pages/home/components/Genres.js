@@ -24,15 +24,14 @@ const Con = styled.div`
 
 export const Genres = ({ index }) => {
   const [genreData, setGenreData] = useState();
-  const [clickColor, setColor] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const onClick = () => setClicked(!clicked);
 
   useEffect(() => {
     (async () => {
       try {
         const { genres: genredata } = await genre();
         setGenreData(genredata);
-        // console.log(genredata);
-        setColor(true);
       } catch (error) {
         console.log(error);
         alert("에러 발생");
@@ -40,8 +39,9 @@ export const Genres = ({ index }) => {
     })();
   }, []);
 
-  const clickHandler = () => {};
-  // const actHandler = () => {};
+  // const clickHandler = () => {
+  //   if()
+  // };
 
   const params = {
     slidesPerView: 8.2,
@@ -67,8 +67,13 @@ export const Genres = ({ index }) => {
       <Swiper {...params}>
         {genreData?.map((data) => (
           <SwiperSlide key={data.id}>
-            <Link to={`/genre/${data.id}`} onClick={clickHandler}>
-              <Con>{data.name}</Con>
+            <Link to={`/genre/${data.id}`}>
+              <Con
+                className={`${clicked ? "active" : ""}`}
+                onClick={() => onClick()}
+              >
+                {data.name}
+              </Con>
             </Link>
           </SwiperSlide>
         ))}
