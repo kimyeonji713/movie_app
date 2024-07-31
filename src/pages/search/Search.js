@@ -113,9 +113,19 @@ const TrendWrap = styled.div`
   }
 
   @media screen and (max-width: ${size.size768}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 30px;
+    position: relative;
   }
 
   @media screen and (max-width: ${size.size368}) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20px;
+    column-gap: 0px;
+    position: relative;
   }
 `;
 const TrendD = styled.div`
@@ -138,9 +148,19 @@ const Text = styled.div`
   }
 
   @media screen and (max-width: ${size.size768}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    position: relative;
   }
 
   @media screen and (max-width: ${size.size368}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    position: relative;
   }
 `;
 
@@ -160,9 +180,19 @@ const Num = styled.div`
   }
 
   @media screen and (max-width: ${size.size768}) {
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    font-weight: 600;
   }
 
   @media screen and (max-width: ${size.size368}) {
+    font-size: 25px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    font-weight: 600;
   }
 `;
 const Title = styled.div`
@@ -183,9 +213,21 @@ const Title = styled.div`
   }
 
   @media screen and (max-width: ${size.size768}) {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 400;
   }
 
   @media screen and (max-width: ${size.size368}) {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 400;
   }
 `;
 
