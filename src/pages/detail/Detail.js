@@ -270,6 +270,7 @@ export const Detail = () => {
   useScrollTop();
   const [movieData, setMovieData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [videoData, setVideoData] = useState();
 
   const { id: movieId } = useParams();
 
@@ -277,6 +278,7 @@ export const Detail = () => {
     (async () => {
       try {
         const data = await movieDetail(movieId);
+
         console.log(data);
 
         setMovieData(data);
@@ -287,6 +289,7 @@ export const Detail = () => {
     })();
   }, [movieId]);
 
+  console.log(movieData);
   return (
     <>
       {isLoading ? (
@@ -323,6 +326,15 @@ export const Detail = () => {
 
             <BtnWrap>
               <button className="trailer">
+                <iframe
+                  width="1250"
+                  height="703"
+                  src="https://www.youtube.com/embed/xIMEESxmVec"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
                 <FaPlay /> 예고편
               </button>
             </BtnWrap>
