@@ -16,7 +16,7 @@ export const Home = () => {
   const [upData, setUpData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [trendData, setTrendData] = useState();
-  // const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -27,6 +27,7 @@ export const Home = () => {
         const { results: upResult } = await upcoming();
         const { results: trendResult } = await trending();
 
+        setNumber(Math.floor(Math.random() * 20));
         setNowData(nowResult);
         setPopData(popResult);
         setTopData(topResult);
@@ -54,7 +55,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
-          <MainBanner movieData={nowData[0]} />
+          <MainBanner movieData={nowData} numData={number} />
           <Genres />
           <Trend title="실시간 🔥" movieData={trendData} />
           <Movies title="현재 상영 영화" movieData={nowData} />

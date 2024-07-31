@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { movieDetail } from "../../api";
+import { movieDetail, videos } from "../../api";
 import { ORIGIN_URL, W500_URL } from "../../constant/imgUrl";
 import { Loading } from "../../components/Loading";
 import { routes } from "../../routes";
@@ -9,6 +9,7 @@ import { useScrollTop } from "../../lib/useScrollTop";
 import { PageTitle } from "../../components/PageTitle";
 import { colors, spacing } from "../../GlobalStyled";
 import { FaPlay } from "react-icons/fa";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const Container = styled.div`
   padding: 150px 15%;
@@ -261,9 +262,37 @@ const BtnWrap = styled.div`
     color: #fff;
   }
 
-  .trailer {
+  .trailerBtn {
     background-color: ${colors.point};
+    cursor: pointer;
   }
+`;
+
+const Video = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 ${spacing.side};
+  display: ${(props) => props.$playAct};
+
+  .trailer {
+    border-radius: 40px;
+    position: absolute;
+    top: 50;
+    right: 0;
+  }
+`;
+const Close = styled.button`
+  all: unset;
+  font-size: 40px;
+  position: absolute;
+  top: -50px;
+  left: -425px;
+  z-index: 9;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 `;
 
 export const Detail = () => {
@@ -271,16 +300,16 @@ export const Detail = () => {
   const [movieData, setMovieData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [videoData, setVideoData] = useState();
-
+  const [show, setShow] = useState(false);
   const { id: movieId } = useParams();
 
   useEffect(() => {
     (async () => {
       try {
         const data = await movieDetail(movieId);
-
-        console.log(data);
-
+        const { results: videoResult } = await videos(movieId);
+        // console.log(data);
+        setVideoData(videoResult);
         setMovieData(data);
         setIsLoading(false);
       } catch (error) {
@@ -289,7 +318,21 @@ export const Detail = () => {
     })();
   }, [movieId]);
 
-  console.log(movieData);
+  // console.log(movieData);
+  // console.log(videoData);
+
+  const playhandler = () => {
+    if (!show) {
+      setShow(true);
+    }
+  };
+
+  const closeHandler = () => {
+    if (show) {
+      setShow(false);
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -324,21 +367,28 @@ export const Detail = () => {
               <p>{movieData.overview}</p>
             </Desc>
 
-            <BtnWrap>
-              <button className="trailer">
-                <iframe
-                  width="1250"
-                  height="703"
-                  src="https://www.youtube.com/embed/xIMEESxmVec"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
+            <BtnWrap onClick={playhandler}>
+              <button className="trailerBtn">
                 <FaPlay /> 예고편
               </button>
             </BtnWrap>
           </ConWrap>
+
+          <Video $playAct={show ? "block" : "none"}>
+            <Close onClick={closeHandler}>
+              <IoMdCloseCircleOutline />
+            </Close>
+            <iframe
+              className="trailer"
+              width="1250"
+              height="703"
+              src={`https://www.youtube.com/embed/${videoData[0].key}`}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </Video>
         </Container>
       )}
     </>

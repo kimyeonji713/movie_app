@@ -146,9 +146,9 @@ const BtnWrap = styled.div`
   }
 `;
 
-export const MainBanner = ({ movieData }) => {
+export const MainBanner = ({ movieData, numData }) => {
   // console.log(movieData);
-  // const numData = movieData[num];
+  const randomData = movieData[numData];
 
   // const [trendData, setTrendData] = useState();
 
@@ -166,14 +166,13 @@ export const MainBanner = ({ movieData }) => {
 
   // console.log(trendData);
 
-  // const ranData = () => {
-  //   Math.round(Math.random() * 10);
-  // };
+  console.log(randomData);
+
   return (
-    <Container $bgUrl={movieData.backdrop_path}>
+    <Container $bgUrl={randomData?.backdrop_path}>
       <BlackBg />
-      <h3>{movieData.title}</h3>
-      <p>{movieData.overview.slice(0, 100) + "..."}</p>
+      <h3>{randomData?.title}</h3>
+      <p>{randomData?.overview.slice(0, 100) + "..."}</p>
       <BtnWrap>
         {/* <button className="trailer">
           <Link to={""}>
@@ -181,7 +180,7 @@ export const MainBanner = ({ movieData }) => {
           </Link>
         </button> */}
         <button className="plus">
-          <Link to={`/detail/${movieData.id}`}>
+          <Link to={`/detail/${randomData?.id}`}>
             <FaPlus /> 더보기
           </Link>
         </button>
