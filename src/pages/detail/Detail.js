@@ -80,7 +80,7 @@ const ConWrap = styled.div`
   @media screen and (max-width: ${size.size368}) {
     width: 100%;
     h3 {
-      font-size: 40px;
+      font-size: 35px;
       font-weight: 700;
       margin-bottom: 30px;
     }
@@ -124,7 +124,7 @@ const Info = styled.div`
   @media screen and (max-width: ${size.size368}) {
     span {
       display: block;
-      padding: 10px 20px;
+      padding: 10px 10px;
       background-color: #333;
       border-radius: 20px;
       font-size: 16px;
@@ -270,8 +270,6 @@ const BtnWrap = styled.div`
 `;
 
 const Video = styled.div`
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -283,52 +281,40 @@ const Video = styled.div`
   .trailer {
     border-radius: 40px;
     position: absolute;
-    top: 50;
+    top: 0;
     right: 0;
+    width: 100%;
+    height: 100vh;
   }
 
-  iframe {
-    width: 1250px;
-    height: 703px;
-  }
   @media screen and (max-width: ${size.size1024}) {
     .trailer {
       border-radius: 40px;
       position: absolute;
-      top: 50;
-      right: 0;
-    }
-
-    iframe {
+      top: 0px;
+      right: 85px;
       width: 80vw;
-      height: 47vw;
+      height: 50vh;
     }
   }
   @media screen and (max-width: ${size.size768}) {
     .trailer {
       border-radius: 40px;
       position: absolute;
-      top: 50;
-      right: 0;
-    }
-
-    iframe {
-      width: 1250px;
-      height: 703px;
+      top: 100px;
+      right: 200px;
+      width: 80vw;
+      height: 40vh;
     }
   }
   @media screen and (max-width: ${size.size368}) {
-    font-weight: 400;
-    opacity: 0.7;
-    margin-top: 80px;
-    line-height: 30px;
-
-    h3 {
-      font-size: 20px;
-    }
-
-    p {
-      font-size: 16px;
+    .trailer {
+      border-radius: 40px;
+      position: absolute;
+      top: 50px;
+      right: -30px;
+      width: 100vw;
+      height: 30vh;
     }
   }
 `;
@@ -341,6 +327,16 @@ const Close = styled.button`
   z-index: 9;
   color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
+  @media screen and (max-width: ${size.size1024}) {
+    position: absolute;
+    top: -50px;
+    left: -300px;
+  }
+  @media screen and (max-width: ${size.size768}) {
+    position: absolute;
+    top: 10px;
+    left: 120px;
+  }
 `;
 
 export const Detail = () => {
