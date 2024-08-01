@@ -30,7 +30,7 @@ const Container = styled.section`
   @media screen and (max-width: ${size.size1024}) {
     padding: 420px ${spacing.side_1024} 0 ${spacing.side_1024};
     h3 {
-      font-size: 65px;
+      font-size: 60px;
       transform: translateY(70px);
     }
     p {

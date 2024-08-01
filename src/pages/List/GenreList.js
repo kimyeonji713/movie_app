@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Genres } from "../home/components/Genres";
 import { size, spacing } from "../../GlobalStyled";
 import { useEffect, useState } from "react";
-import { discoverMovie, genre } from "../../api";
+import { discoverMovie, genre, movieList } from "../../api";
 import { Link, useParams } from "react-router-dom";
 import { ORIGIN_URL } from "../../constant/imgUrl";
 import { Loading } from "../../components/Loading";
@@ -113,15 +113,19 @@ export const GenresList = () => {
   const [genreData, setGenreData] = useState();
   const [discoverData, setDiscoverData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [genreListData, setGenreListData] = useState();
+  const [selectedGenre, setSelectedGenre] = useState(null);
 
   useEffect(() => {
     (async () => {
       try {
+        const { genres } = await movieList();
         const { genres: genredata } = await genre();
         const { results: discoverResult } = await discoverMovie(id);
 
         // console.log(discoverResult);
 
+        setGenreListData(genres);
         setGenreData(genredata);
         setDiscoverData(discoverResult);
         setIsLoading(false);
@@ -132,7 +136,16 @@ export const GenresList = () => {
     })();
   }, [id]);
 
-  const contain = () => {};
+  const handleSelect = (genreId) => {
+    setSelectedGenre(genreId);
+  };
+
+  console.log(handleSelect);
+
+  const filterMoviesByGenre = (movies) => {
+    if (!selectedGenre) return movies;
+    return movies.filter((movie) => movie.genre_ids.includes(selectedGenre));
+  };
 
   // console.log(genreData);
   // console.log(discoverData);
@@ -144,7 +157,11 @@ export const GenresList = () => {
         <Loading />
       ) : (
         <Container>
-          <Genres />
+          <Genres
+            genreListData={genreListData}
+            onSelectGenre={handleSelect}
+            selectedGenre={selectedGenre}
+          />
           <Con>
             <Link key={genreData?.id} to={`/detail/${genreData?.id}`}>
               {discoverData?.map((discover) => (

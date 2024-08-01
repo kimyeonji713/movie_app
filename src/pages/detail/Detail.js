@@ -7,7 +7,7 @@ import { Loading } from "../../components/Loading";
 import { routes } from "../../routes";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { PageTitle } from "../../components/PageTitle";
-import { colors, spacing } from "../../GlobalStyled";
+import { colors, size, spacing } from "../../GlobalStyled";
 import { FaPlay } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { TopButton } from "../home/components/TopButton";
@@ -16,13 +16,13 @@ const Container = styled.div`
   padding: 150px 15%;
   display: flex;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     padding: 150px 10%;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     padding: 150px ${spacing.moSide};
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     padding: 150px ${spacing.moSide};
     flex-direction: column;
   }
@@ -33,19 +33,19 @@ const CoverImg = styled.img`
   margin-right: 5%;
   object-fit: cover;
   margin-bottom: 0;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     width: 45%;
     margin-right: 5%;
     object-fit: cover;
     margin-bottom: 0;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     width: 48%;
     margin-right: 8%;
     object-fit: cover;
     margin-bottom: 0;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     width: 100%;
     margin-right: 0%;
     object-fit: cover;
@@ -61,7 +61,7 @@ const ConWrap = styled.div`
     margin-bottom: 30px;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     width: 40%;
     h3 {
       font-size: 55px;
@@ -69,7 +69,7 @@ const ConWrap = styled.div`
       margin-bottom: 30px;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     width: 40%;
     h3 {
       font-size: 45px;
@@ -77,7 +77,7 @@ const ConWrap = styled.div`
       margin-bottom: 30px;
     }
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     width: 100%;
     h3 {
       font-size: 40px;
@@ -99,7 +99,7 @@ const Info = styled.div`
   }
   display: flex;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     span {
       display: block;
       padding: 10px 20px;
@@ -110,7 +110,7 @@ const Info = styled.div`
       margin-right: 15px;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     span {
       display: block;
       padding: 10px 10px;
@@ -121,7 +121,7 @@ const Info = styled.div`
       margin-right: 15px;
     }
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     span {
       display: block;
       padding: 10px 20px;
@@ -148,7 +148,7 @@ const Genres = styled.ul`
     margin-right: 15px;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     margin-top: 10px;
 
     a {
@@ -161,7 +161,7 @@ const Genres = styled.ul`
       margin-right: 15px;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     margin-top: 10px;
 
     a {
@@ -174,7 +174,7 @@ const Genres = styled.ul`
       margin-right: 15px;
     }
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     margin-top: 10px;
 
     a {
@@ -203,7 +203,7 @@ const Desc = styled.div`
     font-size: 16px;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: ${size.size1024}) {
     font-weight: 400;
     opacity: 0.7;
     margin-top: 80px;
@@ -217,7 +217,7 @@ const Desc = styled.div`
       font-size: 16px;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${size.size768}) {
     font-weight: 400;
     opacity: 0.7;
     margin-top: 100px;
@@ -231,7 +231,7 @@ const Desc = styled.div`
       font-size: 15px;
     }
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: ${size.size368}) {
     font-weight: 400;
     opacity: 0.7;
     margin-top: 80px;
@@ -270,6 +270,8 @@ const BtnWrap = styled.div`
 `;
 
 const Video = styled.div`
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -283,6 +285,51 @@ const Video = styled.div`
     position: absolute;
     top: 50;
     right: 0;
+  }
+
+  iframe {
+    width: 1250px;
+    height: 703px;
+  }
+  @media screen and (max-width: ${size.size1024}) {
+    .trailer {
+      border-radius: 40px;
+      position: absolute;
+      top: 50;
+      right: 0;
+    }
+
+    iframe {
+      width: 80vw;
+      height: 47vw;
+    }
+  }
+  @media screen and (max-width: ${size.size768}) {
+    .trailer {
+      border-radius: 40px;
+      position: absolute;
+      top: 50;
+      right: 0;
+    }
+
+    iframe {
+      width: 1250px;
+      height: 703px;
+    }
+  }
+  @media screen and (max-width: ${size.size368}) {
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 80px;
+    line-height: 30px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
 `;
 const Close = styled.button`
@@ -381,13 +428,11 @@ export const Detail = () => {
             </Close>
             <iframe
               className="trailer"
-              width="1250"
-              height="703"
               src={`https://www.youtube.com/embed/${videoData[0].key}`}
               frameborder="0"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             ></iframe>
           </Video>
           <TopButton />

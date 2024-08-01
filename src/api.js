@@ -57,3 +57,8 @@ export const videos = (movie_id) => {
   const videolUrl = baseUrl + `movie/${movie_id}/videos?language=ko-kr`;
   return fetch(videolUrl, options).then((res) => res.json());
 };
+
+export const movieList = () => {
+  const genreList = baseUrl + "genre/movie/list?language=ko";
+  return fetch(genreList, options).then((res) => res.json());
+};

@@ -4,9 +4,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { colors, size } from "../../../GlobalStyled";
+import { useScrollTop } from "../../../lib/useScrollTop";
 
 const Section = styled.section`
-  padding: 50px 0 0 50px;
+  padding: 50px 0 0 0px;
 
   @media screen and (max-width: ${size.size1024}) {
     padding: 30px 0 0 0px;
@@ -21,43 +22,63 @@ const Section = styled.section`
   }
 `;
 
-const Con = styled.div`
-  padding: 15px;
-  background-color: ${(props) => (props.$activeColor ? "red" : "#444")};
+const Button = styled.button`
+  all: unset;
+  width: 80%;
+  padding: 10px;
+  background-color: ${(props) =>
+    props.$isSelected ? `${colors.point}` : "#444"};
   text-align: center;
   font-size: 19px;
   font-weight: 600;
-  border-radius: 25px;
+  border-radius: 30px;
 
   @media screen and (max-width: ${size.size1024}) {
-    padding: 15px;
-    background-color: ${(props) => (props.$activeColor ? "red" : "#444")};
+    all: unset;
+    width: 80%;
+    padding: 10px;
+    background-color: ${(props) =>
+      props.$isSelected ? `${colors.point}` : "#444"};
     text-align: center;
     font-size: 19px;
     font-weight: 600;
-    border-radius: 25px;
+    border-radius: 30px;
   }
 
   @media screen and (max-width: ${size.size768}) {
-    padding: 15px;
-    background-color: ${(props) => (props.$activeColor ? "red" : "#444")};
+    all: unset;
+    width: 80%;
+    padding: 10px;
+    background-color: ${(props) =>
+      props.$isSelected ? `${colors.point}` : "#444"};
     text-align: center;
     font-size: 19px;
     font-weight: 600;
-    border-radius: 25px;
+    border-radius: 30px;
   }
 
   @media screen and (max-width: ${size.size368}) {
-    padding: 15px 0;
-    background-color: ${(props) => (props.$activeColor ? "red" : "#444")};
+    all: unset;
+    width: 80%;
+    padding: 10px;
+    background-color: ${(props) =>
+      props.$isSelected ? `${colors.point}` : "#444"};
     text-align: center;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 600;
-    border-radius: 25px;
+    border-radius: 30px;
   }
 `;
 
-export const Genres = ({ index }) => {
+const Con = styled.div``;
+
+export const Genres = ({
+  index,
+  genreListData,
+  onSelectGenre,
+  selectedGenre,
+}) => {
+  useScrollTop();
   const [genreData, setGenreData] = useState();
   const [clicked, setClicked] = useState("");
 
@@ -76,8 +97,8 @@ export const Genres = ({ index }) => {
   console.log(genreData);
 
   const params = {
-    slidesPerView: 8.2,
-    spaceBetween: 50,
+    slidesPerView: 10.2,
+    spaceBetween: 40,
     breakpoints: {
       1024: {
         slidesPerView: 7.2,
@@ -99,10 +120,14 @@ export const Genres = ({ index }) => {
       <Swiper {...params}>
         {genreData?.map((data) => (
           <SwiperSlide key={data.id}>
-            {/* <button onClick={() => onClick(data.id)}></button> */}
-            <Link to={`/genre/${data.id}`}>
-              <Con $activeColor={clicked === data.id}>{data.name}</Con>
-            </Link>
+            <Button
+              onClick={() => onSelectGenre(data.id)}
+              $isSelected={selectedGenre === data.id}
+            >
+              <Link to={`/genre/${data.id}`}>
+                <Con $activeColor={clicked === data.id}>{data.name}</Con>
+              </Link>
+            </Button>
           </SwiperSlide>
         ))}
       </Swiper>
