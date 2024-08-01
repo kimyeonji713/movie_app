@@ -15,6 +15,7 @@ import { Genres } from "./components/Genres";
 import { Trend } from "./components/Trend";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { TopButton } from "./components/TopButton";
+import { GenresMain } from "./components/GenresMain";
 
 export const Home = () => {
   useScrollTop();
@@ -62,7 +63,7 @@ export const Home = () => {
       ) : (
         <>
           <MainBanner movieData={popData} numData={number} />
-          <Genres />
+          <GenresMain />
           <Trend title="실시간 🔥" movieData={trendData} />
           <Movies title="현재 상영 영화" movieData={nowData} />
           <Movies title="인기 영화" movieData={popData} />
