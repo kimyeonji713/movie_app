@@ -29,8 +29,13 @@ export const upcoming = () =>
 export const trending = () =>
   fetch(url("trending/movie/day"), options).then((res) => res.json());
 
-export const discoverMovie = () =>
-  fetch(url("discover/movie"), options).then((res) => res.json());
+export const discoverMovie = (id) =>
+  fetch(
+    url(
+      `discover/movie?include_adult=false&include_video=false&language=ko-KR&with_genres=${id}`
+    ),
+    options
+  ).then((res) => res.json());
 
 export const movieDetail = (movie_id) =>
   fetch(url(`movie/${movie_id}`), options).then((res) => res.json());

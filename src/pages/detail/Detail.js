@@ -10,6 +10,7 @@ import { PageTitle } from "../../components/PageTitle";
 import { colors, spacing } from "../../GlobalStyled";
 import { FaPlay } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { TopButton } from "../home/components/TopButton";
 
 const Container = styled.div`
   padding: 150px 15%;
@@ -389,6 +390,7 @@ export const Detail = () => {
               allowfullscreen
             ></iframe>
           </Video>
+          <TopButton />
         </Container>
       )}
     </>

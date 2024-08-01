@@ -88,7 +88,7 @@ const BlackBg = styled.div`
 
 const BtnWrap = styled.div`
   position: relative;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   width: 100%;
   button {

@@ -3,21 +3,25 @@ import { Genres } from "../home/components/Genres";
 import { spacing } from "../../GlobalStyled";
 import { useEffect, useState } from "react";
 import { discoverMovie, genre } from "../../api";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { W500_URL } from "../../constant/imgUrl";
 import { Loading } from "../../components/Loading";
+import { TopButton } from "../home/components/TopButton";
 
 const Container = styled.div`
   padding: 100px ${spacing.subside};
 `;
 
 const Con = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  row-gap: 30px;
-  column-gap: 15px;
   margin-top: 50px;
 `;
+const BgWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 30px;
+  column-gap: 15px;
+`;
+
 const Bg = styled.div`
   height: 400px;
   img {
@@ -27,6 +31,7 @@ const Bg = styled.div`
 `;
 
 export const GenresList = () => {
+  const { id } = useParams();
   const [genreData, setGenreData] = useState();
   const [discoverData, setDiscoverData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +40,7 @@ export const GenresList = () => {
     (async () => {
       try {
         const { genres: genredata } = await genre();
-        const { results: discoverResult } = await discoverMovie();
+        const { results: discoverResult } = await discoverMovie(id);
 
         // console.log(discoverResult);
 
@@ -47,12 +52,12 @@ export const GenresList = () => {
         alert("에러 발생");
       }
     })();
-  }, []);
+  }, [id]);
 
   const contain = () => {};
 
   // console.log(genreData);
-  console.log(discoverData);
+  // console.log(discoverData);
   // data.id || discover.genre_ids
 
   return (
@@ -66,16 +71,20 @@ export const GenresList = () => {
             <Con key={data.id}>
               <Link to={`/detail/${data.id}`}>
                 {discoverData?.map((discover) => (
-                  <Bg>
-                    <img
-                      src={W500_URL + discover.poster_path}
-                      alt={discover.title}
-                    />
-                  </Bg>
+                  <BgWrap key={discover.id}>
+                    <Bg>
+                      <img
+                        src={W500_URL + discover.poster_path}
+                        alt={discover.title}
+                      />
+                      <h3>{discover.title}</h3>
+                    </Bg>
+                  </BgWrap>
                 ))}
               </Link>
             </Con>
           ))}
+          <TopButton />
         </Container>
       )}
     </>
