@@ -1,17 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-  latest,
-  nowPlaying,
-  popular,
-  topRated,
-  trending,
-  upcoming,
-} from "../../api";
+import { nowPlaying, popular, topRated, trending, upcoming } from "../../api";
 import { Loading } from "../../components/Loading";
 import { MainBanner } from "./components/MainBanner";
 import { Movies } from "./components/Movies";
 import "swiper/css";
-import { Genres } from "./components/Genres";
 import { Trend } from "./components/Trend";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { TopButton } from "./components/TopButton";

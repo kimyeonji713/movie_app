@@ -6,7 +6,7 @@ import { searchMovie, trending } from "../../api";
 import { FiSearch } from "react-icons/fi";
 import { Loading } from "../../components/Loading";
 import { Link } from "react-router-dom";
-import { ORIGIN_URL, W500_URL } from "../../constant/imgUrl";
+import { W500_URL } from "../../constant/imgUrl";
 
 const Container = styled.div`
   padding: 150px ${spacing.side};

@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { movieDetail, videos } from "../../api";
-import { ORIGIN_URL, W500_URL } from "../../constant/imgUrl";
+import { ORIGIN_URL } from "../../constant/imgUrl";
 import { Loading } from "../../components/Loading";
-import { routes } from "../../routes";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { PageTitle } from "../../components/PageTitle";
 import { colors, size, spacing } from "../../GlobalStyled";
@@ -425,6 +424,7 @@ export const Detail = () => {
             <iframe
               className="trailer"
               src={`https://www.youtube.com/embed/${videoData[0].key}`}
+              title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"

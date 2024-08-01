@@ -7,7 +7,6 @@ import { Link, useParams } from "react-router-dom";
 import { ORIGIN_URL } from "../../constant/imgUrl";
 import { Loading } from "../../components/Loading";
 import { TopButton } from "../home/components/TopButton";
-import { PageTitle } from "../../components/PageTitle";
 
 const Container = styled.div`
   padding: 100px ${spacing.subside};

@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { ORIGIN_URL } from "../../../constant/imgUrl";
 import { colors, size, spacing } from "../../../GlobalStyled";
 import { Link } from "react-router-dom";
-import { FaPlay, FaPlus } from "react-icons/fa";
-import { routes } from "../../../routes";
+import { FaPlus } from "react-icons/fa";
 
 const Container = styled.section`
   height: 80vh;

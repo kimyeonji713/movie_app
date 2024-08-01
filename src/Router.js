@@ -30,14 +30,3 @@ const Router = () => {
 };
 
 export default Router;
-
-{
-  /* <HashRouter>
-      <Routes>
-        <Route path={routes.home} element={<Home />} />
-        <Route path={routes.detail} element={<Detail />} />
-        <Route path={routes.search} element={<Search />} />
-        <Route path="/*" element={<PageNotFound />} />
-      </Routes>
-    </HashRouter> */
-}

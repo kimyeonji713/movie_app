@@ -3,7 +3,6 @@ import { colors, size, spacing } from "../GlobalStyled";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { FiSearch } from "react-icons/fi";
-import { FaBars } from "react-icons/fa";
 import { Bar } from "../pages/home/components/Bar";
 import { useEffect, useState } from "react";
 import { GoPerson } from "react-icons/go";
@@ -149,10 +148,6 @@ export const Header = () => {
   const [isOpen, setMenu] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const toggleHandler = () => {
-    setMenu(true);
-  };
-
   const scrollHandler = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
@@ -163,9 +158,6 @@ export const Header = () => {
     setScrollPosition(scrollPosition);
   });
 
-  // console.log(scrollPosition);
-
-  // console.log(isOpen);
   return (
     <Container
       className={scrollPosition < 100 ? " " : "active"}
