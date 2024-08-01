@@ -145,7 +145,6 @@ const Menu = styled.ul`
 `;
 
 export const Header = () => {
-  const [isOpen, setMenu] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const scrollHandler = () => {
@@ -174,18 +173,12 @@ export const Header = () => {
           </Link>
         </li>
 
-        {/* <button onClick={toggleHandler}>
-          <FaBars />
-        </button> */}
-
         <li className="login">
           <Link to={routes.login}>
             <GoPerson />
           </Link>
         </li>
       </Menu>
-
-      {isOpen ? <Bar /> : ""}
     </Container>
   );
 };

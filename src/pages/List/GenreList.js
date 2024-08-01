@@ -142,11 +142,6 @@ export const GenresList = () => {
 
   console.log(handleSelect);
 
-  const filterMoviesByGenre = (movies) => {
-    if (!selectedGenre) return movies;
-    return movies.filter((movie) => movie.genre_ids.includes(selectedGenre));
-  };
-
   // console.log(genreData);
   // console.log(discoverData);
   // data.id || discover.genre_ids

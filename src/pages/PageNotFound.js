@@ -1,6 +1,5 @@
 import { TbMoodSadDizzy } from "react-icons/tb";
 import styled from "styled-components";
-import { colors } from "../GlobalStyled";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 
