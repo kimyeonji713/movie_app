@@ -61,7 +61,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
-          <MainBanner movieData={trendData} numData={number} />
+          <MainBanner movieData={popData} numData={number} />
           <Genres />
           <Trend title="실시간 🔥" movieData={trendData} />
           <Movies title="현재 상영 영화" movieData={nowData} />

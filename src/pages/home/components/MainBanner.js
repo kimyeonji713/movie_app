@@ -88,7 +88,7 @@ const BlackBg = styled.div`
 
 const BtnWrap = styled.div`
   position: relative;
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   width: 100%;
   button {
@@ -133,7 +133,7 @@ const BtnWrap = styled.div`
   }
 
   @media screen and (max-width: ${size.size368}) {
-    margin-top: -20px;
+    margin-top: -30px;
     button {
       width: 120px;
       height: 40px;

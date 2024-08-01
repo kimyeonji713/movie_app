@@ -49,7 +49,7 @@ export const searchMovie = (keyword) => {
 };
 
 export const genre = () => {
-  const genrelUrl = baseUrl + `genre/movie/list?language=ko-kr`;
+  const genrelUrl = baseUrl + `genre/movie/list?language=ko-kr=$`;
   return fetch(genrelUrl, options).then((res) => res.json());
 };
 

@@ -71,7 +71,7 @@ const MovieTitle = styled.div`
   }
 
   @media screen and (max-width: ${size.size368}) {
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 8px;
     line-height: 16px;
   }

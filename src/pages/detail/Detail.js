@@ -356,7 +356,7 @@ export const Detail = () => {
             </Info>
 
             <Genres>
-              {movieData.genres.map((genre) => (
+              {movieData?.genres?.map((genre) => (
                 <li key={genre.id}>
                   <a href={`/#/genre/${genre.id}`}>{genre.name}</a>
                 </li>
@@ -385,7 +385,7 @@ export const Detail = () => {
               height="703"
               src={`https://www.youtube.com/embed/${videoData[0].key}`}
               frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>

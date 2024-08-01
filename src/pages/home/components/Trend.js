@@ -59,7 +59,7 @@ const MovieTitle = styled.div`
   }
 
   @media screen and (max-width: ${size.size368}) {
-    font-size: 14px;
+    font-size: 13px;
     margin-left: 25%;
   }
 `;
