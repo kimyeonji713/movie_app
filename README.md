@@ -1,40 +1,26 @@
-## MOvie review app | 영화 리뷰앱
+# Read Me
 
-## 설치 항목
+### 타이틀 작성 (앱 이름)
+> RE:MOVIE
+> Movie review 와 re가 가지고 있는 다시라는 의미를 가져와 
 
-- [x] react-router-dom
-- [x] styled-components
-- [x] styled-reset
-- [x] react-spinners
-- [x] swiper
-- [x] font-awesome
-- [x] react-hook-form
-- [x] helmet-async
-- [x] react-icons
-- [ ] gh-pages
+### 목적성
 
-## 240726
+### 기술 (Stack)
+=> js, react, node js, git, github ...
 
-- [x] npm 설치
-- [x] Router 설정
-- [x] Home, Detail, Search, 404 페이지 만들기
-- [x] routes 설정
-- [x] Globalstyled 구성
+### 개발 기간
 
-## 240727
+### 프로젝트 기획(상세히 적기! 중요!! 스토리가 있으면 좋음)
+=> 목정성에 달성하기 위해 어떠한 과정이 있었고 그 과정을 내 스타일대로 훨씬 더 또는 또 다른 경험을 할 수 있는 앱을 제작하기로 함
 
-- [x] api 설정
-- [x] Header 구성
-- [x] Footer 구성
-- [x] Loading 구성
-- [x] 로그인 페이지 스타일 구성
-- [ ] 햄버거 메뉴 구성
+### 프로젝트 소개 + url
 
-## 240728
+### 프로젝트하면서 느낀점(제일 중요)
 
-- [ ] 햄버거 메뉴 구성
-- [x] 토글 설정
-- [x] 로그인 구성
-- [x] 회원가입 구성
-- [x] Home 구성
-- [ ] Detail 구성
+### 개선 방안
+
+### 프로젝트 진행 중 새로 알게 된 내용
+=> ex) 새로 알게 된 내용을 토대로 새로운 프로젝트에 활용을 해볼 예정.
+
+### 프로젝트 진행 중 반성 및 칭찬 사항
