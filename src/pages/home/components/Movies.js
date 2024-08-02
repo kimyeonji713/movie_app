@@ -55,7 +55,7 @@ const Title = styled.div`
 `;
 
 const MovieTitle = styled.div`
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 18px;
   line-height: 21px;
 
