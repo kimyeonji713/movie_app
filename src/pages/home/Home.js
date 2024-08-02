@@ -28,7 +28,7 @@ export const Home = () => {
         const { results: upResult } = await upcoming();
         const { results: trendResult } = await trending();
 
-        setNumber(Math.floor(Math.random() * 20));
+        setNumber(Math.floor(Math.random() * 5));
         setNowData(nowResult);
         setPopData(popResult);
         setTopData(topResult);
