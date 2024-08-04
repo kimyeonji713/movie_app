@@ -110,7 +110,7 @@ const ConWrap = styled.div`
 const Info = styled.div`
   span {
     display: block;
-    padding: 10px 20px;
+    padding: 10px 50px;
     background-color: #333;
     border-radius: 20px;
     font-size: 18px;
@@ -175,7 +175,7 @@ const Genres = styled.ul`
 
   a {
     display: block;
-    padding: 10px 20px;
+    padding: 10px 60px;
     background-color: #333;
     border-radius: 20px;
     font-size: 18px;
@@ -344,8 +344,8 @@ const Video = styled.div`
     border-radius: 40px;
     position: absolute;
     top: 0;
-    right: 0;
-    width: 100%;
+    right: -80px;
+    width: 80vw;
     height: 100vh;
   }
 
