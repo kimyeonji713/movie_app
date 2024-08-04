@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { size, spacing } from "../../../GlobalStyled";
 
 const Section = styled.section`
+  margin-top: 40px;
   padding: 50px 0 0 50px;
 
   @media screen and (max-width: ${size.size1024}) {

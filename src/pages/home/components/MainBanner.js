@@ -15,7 +15,6 @@ const Container = styled.section`
     font-weight: 700;
     letter-spacing: -3px;
     margin-bottom: 30px;
-    position: relative;
   }
 
   p {
@@ -60,14 +59,14 @@ const Container = styled.section`
     h3 {
       font-size: 30px;
       margin-bottom: 25px;
-      transform: translateY(-50px);
+      transform: translateY(-70px);
     }
     p {
       max-width: 300px;
       width: 100%;
       font-size: 14px;
       line-height: 20px;
-      transform: translateY(-50px);
+      transform: translateY(-70px);
     }
   }
 `;
@@ -83,6 +82,29 @@ const BlackBg = styled.div`
     rgba(0, 0, 0, 0.8) 40%,
     rgba(255, 255, 255, 0) 100%
   );
+`;
+
+const Desc = styled.div`
+  position: absolute;
+  bottom: 50px;
+  left: 130px;
+  @media screen and (max-width: ${size.size1024}) {
+    position: absolute;
+    bottom: 50px;
+    left: 70px;
+  }
+
+  @media screen and (max-width: ${size.size768}) {
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+  }
+
+  @media screen and (max-width: ${size.size368}) {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+  }
 `;
 
 const BtnWrap = styled.div`
@@ -170,20 +192,18 @@ export const MainBanner = ({ movieData, numData }) => {
   return (
     <Container $bgUrl={randomData?.backdrop_path}>
       <BlackBg />
-      <h3>{randomData?.title}</h3>
-      <p>{randomData?.overview.slice(0, 100) + "..."}</p>
-      <BtnWrap>
-        {/* <button className="trailer">
-          <Link to={""}>
-            <FaPlay /> 예고편
-          </Link>
-        </button> */}
-        <button className="plus">
-          <Link to={`/detail/${randomData?.id}`}>
-            <FaPlus /> 더보기
-          </Link>
-        </button>
-      </BtnWrap>
+      <Desc>
+        <h3>{randomData?.title}</h3>
+        <p>{randomData?.overview.slice(0, 100) + "..."}</p>
+
+        <BtnWrap>
+          <button className="plus">
+            <Link to={`/detail/${randomData?.id}`}>
+              <FaPlus /> 더보기
+            </Link>
+          </button>
+        </BtnWrap>
+      </Desc>
     </Container>
   );
 };

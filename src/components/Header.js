@@ -131,7 +131,7 @@ const Menu = styled.ul`
   }
   @media screen and (max-width: ${size.size768}) {
     .login {
-      margin-left: 80px;
+      margin-left: 50px;
       cursor: pointer;
     }
   }
