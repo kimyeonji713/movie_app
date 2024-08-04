@@ -21,6 +21,12 @@ const Container = styled.div`
   @media screen and (max-width: ${size.size768}) {
     padding: 150px ${spacing.moSide};
   }
+
+  @media screen and (max-width: ${size.size435}) {
+    padding: 150px ${spacing.moSide};
+    flex-direction: column;
+  }
+
   @media screen and (max-width: ${size.size368}) {
     padding: 150px ${spacing.moSide};
     flex-direction: column;
@@ -43,6 +49,12 @@ const CoverImg = styled.img`
     margin-right: 8%;
     object-fit: cover;
     margin-bottom: 0;
+  }
+  @media screen and (max-width: ${size.size435}) {
+    width: 100%;
+    margin-right: 0%;
+    object-fit: cover;
+    margin-bottom: 20px;
   }
   @media screen and (max-width: ${size.size368}) {
     width: 100%;
@@ -76,6 +88,15 @@ const ConWrap = styled.div`
       margin-bottom: 30px;
     }
   }
+  @media screen and (max-width: ${size.size435}) {
+    width: 100%;
+    h3 {
+      font-size: 35px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+  }
+
   @media screen and (max-width: ${size.size368}) {
     width: 100%;
     h3 {
@@ -97,6 +118,8 @@ const Info = styled.div`
     margin-right: 15px;
   }
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @media screen and (max-width: ${size.size1024}) {
     span {
@@ -120,6 +143,17 @@ const Info = styled.div`
       margin-right: 15px;
     }
   }
+  @media screen and (max-width: ${size.size435}) {
+    span {
+      display: block;
+      padding: 10px 20px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
   @media screen and (max-width: ${size.size368}) {
     span {
       display: block;
@@ -136,6 +170,8 @@ const Info = styled.div`
 const Genres = styled.ul`
   display: flex;
   margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
 
   a {
     display: block;
@@ -166,6 +202,19 @@ const Genres = styled.ul`
     a {
       display: block;
       padding: 10px 20px;
+      background-color: #333;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      margin-right: 15px;
+    }
+  }
+  @media screen and (max-width: ${size.size435}) {
+    margin-top: 10px;
+
+    a {
+      display: block;
+      padding: 10px 30px;
       background-color: #333;
       border-radius: 20px;
       font-size: 16px;
@@ -217,6 +266,20 @@ const Desc = styled.div`
     }
   }
   @media screen and (max-width: ${size.size768}) {
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 100px;
+    line-height: 25px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+  @media screen and (max-width: ${size.size435}) {
     font-weight: 400;
     opacity: 0.7;
     margin-top: 100px;
@@ -306,6 +369,16 @@ const Video = styled.div`
       height: 40vh;
     }
   }
+  @media screen and (max-width: ${size.size435}) {
+    .trailer {
+      border-radius: 40px;
+      position: absolute;
+      top: 50px;
+      right: -30px;
+      width: 100vw;
+      height: 30vh;
+    }
+  }
   @media screen and (max-width: ${size.size368}) {
     .trailer {
       border-radius: 40px;
@@ -332,6 +405,16 @@ const Close = styled.button`
     left: -300px;
   }
   @media screen and (max-width: ${size.size768}) {
+    position: absolute;
+    top: 10px;
+    left: 120px;
+  }
+  @media screen and (max-width: ${size.size435}) {
+    position: absolute;
+    top: 10px;
+    left: 150px;
+  }
+  @media screen and (max-width: ${size.size368}) {
     position: absolute;
     top: 10px;
     left: 120px;
