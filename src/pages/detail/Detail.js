@@ -346,7 +346,7 @@ const Video = styled.div`
     top: 0;
     right: -80px;
     width: 80vw;
-    height: 100vh;
+    height: 80vh;
   }
 
   @media screen and (max-width: ${size.size1024}) {
