@@ -81,11 +81,11 @@ export const GenresMain = () => {
       },
       768: {
         slidesPerView: 4.2,
-        spaceBetween: 20,
+        spaceBetween: 18,
       },
       368: {
-        slidesPerView: 4.2,
-        spaceBetween: 0,
+        slidesPerView: 3.2,
+        spaceBetween: 10,
       },
     },
   };
